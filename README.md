@@ -52,7 +52,6 @@ RegExp
 Function
 NaN
 Infinity
-
 ```
 
 ### Adding types
