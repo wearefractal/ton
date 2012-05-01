@@ -80,3 +80,25 @@ describe 'ton', ->
       out = ton.parse str
       out.should.eql o
       done()
+
+  describe 'undefined', ->
+    it 'should be correct', (done) ->
+      o = test: undefined
+      str = ton.stringify o
+      expected = '{"test":undefined}'
+      should.exist str
+      str.should.equal expected
+
+      out = ton.parse str
+      out.should.eql o
+      done()
+
+  describe 'Function', ->
+    it 'should be correct', (done) ->
+      o = test: (a, b) -> a+b 
+      str = ton.stringify o
+      should.exist str
+
+      out = ton.parse str
+      out.test.toString().should.equal o.test.toString()
+      done()
