@@ -4,11 +4,11 @@
 
 <table>
 <tr> 
-<td>Package</td><td>APPNAME</td>
+<td>Package</td><td>ton</td>
 </tr>
 <tr>
 <td>Description</td>
-<td>NOTHING HERE YET</td>
+<td>Typed Object Notation</td>
 </tr>
 <tr>
 <td>Node Version</td>
@@ -16,15 +16,65 @@
 </tr>
 </table>
 
+## Prefix
+
+JSON supports 6 types - Number, String, Boolean, Array, Object, and null. Wouldn't it be nice if you could define your own types? Why be limited to 6 types? ObjectIDs, KoolKlass10, Integer32, you name it - adding your own types is a breeze.
+
 ## Usage
 
 ```coffee-script
-NOTHING HERE YET
+ton = require 'ton'
+obj =
+  d: new Date('1/9/1979')
+  i: Infinity
+  x: NaN
+  w: "test"
+  a: true
+
+str = ton.stringify obj
+ton.parse str
 ```
 
-## Examples
+## Types supported
 
-You can view more examples in the [example folder.](https://github.com/wearefractal/APPNAME/tree/master/examples)
+These are included by default in ton:
+
+```
+Number
+String
+Boolean
+Array
+Object
+null
+undefined
+Date
+RegExp
+Function
+NaN
+Infinity
+
+```
+
+### Adding types
+
+```coffee-script
+# Your function either returns a value or undefined
+# If it returns a value that will be used in the stringify/parse process
+# Your output should be valid javascript
+ton.add 'CoolType', (val) -> "new CoolType(#{val.name})" if val instanceof CoolType
+
+# Now this will work
+str = ton.stringify test: new CoolType("tom")
+# str === {"test":new CoolType("tom")}
+```
+
+### Removing types
+
+```coffee-script
+# All of the built-in types can be removed as well
+ton.remove 'CoolType'
+```
+
 
 ## LICENSE
 
