@@ -25,15 +25,6 @@ describe 'ton', ->
 
   describe 'Date', ->
     it 'should be correct', (done) ->
-      o = test: new Date "1/7/1971"
-      str = ton.stringify o
-      expected = '{"test":new Date("1971-01-07T07:00:00.000Z")}'
-      should.exist str
-      str.should.equal expected
-
-      out = ton.parse str
-      out.should.eql o
-
       d = new Date Date.now()
       o = test: d
       str = ton.stringify o
