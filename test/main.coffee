@@ -45,7 +45,7 @@ describe 'ton', ->
       str.should.equal expected
 
       out = ton.parse str
-      out.should.eql o
+      out.test.toString().should.equal o.test.toString()
       done()
 
   describe 'NaN', ->
