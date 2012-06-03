@@ -1,4 +1,4 @@
-![status](https://secure.travis-ci.org/wearefractal/APPNAME.png?branch=master)
+![status](https://secure.travis-ci.org/wearefractal/ton.png?branch=master)
 
 ## Information
 
