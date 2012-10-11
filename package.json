@@ -1,7 +1,7 @@
 {
    "name":"ton",
    "description":"Typed Object Notation",
-   "version":"0.0.1",
+   "version":"0.0.2",
    "homepage":"http://github.com/wearefractal/ton",
    "repository":"git://github.com/wearefractal/ton.git",
    "author":"Fractal <contact@wearefractal.com> (http://wearefractal.com/)",

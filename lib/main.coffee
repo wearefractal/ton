@@ -12,14 +12,14 @@ add "object", (val) ->
   if typeof val is "object"
     keys = Object.keys val
     return "{}" unless keys.length
-    return "{#{keys.map((key) -> "\"#{key}\":#{stringify(val[key])}").join(',')}}"
+    return "{#{keys.map((key) -> "#{stringify(key)}:#{stringify(val[key])}").join(',')}}"
 add "RegExp", (val) -> String val if val instanceof RegExp
 add "Date", (val) -> "new Date(\"#{val.toISOString()}\")" if val instanceof Date
 add "Array", (val) -> "[#{val.map(stringify).join(',')}]" if Array.isArray val
 add "function", (val) -> String val if typeof val is 'function'
 add "number", (val) -> String val if typeof val is 'number'
 add "boolean", (val) -> String val if typeof val is 'boolean'
-add "string", (val) -> "\"#{val}\"" if typeof val is 'string'
+add "string", (val) -> JSON.stringify(val) if typeof val is 'string'
 add "undefined", (val) -> "undefined" if typeof val is 'undefined'
 add "null", (val) -> "null" if val is null
 
